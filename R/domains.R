@@ -18,11 +18,12 @@
 #' @param rowLimit Control the number of rows to split the domains into
 #' @param dynamicDimension Enable/disable dynamic width and height of domains
 #' @param verticalOrientation Display Calendar Heatmap vertically
+#' @param subDomainTextFormat sets the display in the cell. Use "%d" to show the day of month.
 #'
 #' @return a calheatmapR with customised domain options
 #'
 #' @export
-chDomain2 <- function(calheatmapR,
+chDomain <- function(calheatmapR,
                      domain = c("hour", "day", "week", "month", "year"),
                      subDomain = c("min", "x_min", "hour", "x_hour", "day",
                                     "x_day", "week", "x_week", "month", "x_month"),
@@ -35,7 +36,7 @@ chDomain2 <- function(calheatmapR,
     domainAttrs <- list()
     domainAttrs$domain <- match.arg(domain)
     domainAttrs$subDomain <- match.arg(subDomain)
-    if(is.null(start)) {
+    if (is.null(start)) {
         start <- as.character(Sys.Date())
     }
     domainAttrs$start <- start
@@ -58,25 +59,3 @@ chDomain2 <- function(calheatmapR,
     return(calheatmapR)
 }
 
-
-mergeLists <- function (base_list, overlay_list, recursive = TRUE) {
-    if (length(base_list) == 0)
-        overlay_list
-    else if (length(overlay_list) == 0)
-        base_list
-    else {
-        merged_list <- base_list
-        for (name in names(overlay_list)) {
-            base <- base_list[[name]]
-            overlay <- overlay_list[[name]]
-            if (is.list(base) && is.list(overlay) && recursive)
-                merged_list[[name]] <- mergeLists(base, overlay)
-            else {
-                merged_list[[name]] <- NULL
-                merged_list <- append(merged_list,
-                                      overlay_list[which(names(overlay_list) %in% name)])
-            }
-        }
-        merged_list
-    }
-}
