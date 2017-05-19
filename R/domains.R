@@ -22,14 +22,14 @@
 #' @return a calheatmapR with customised domain options
 #'
 #' @export
-chDomain <- function(calheatmapR,
+chDomain2 <- function(calheatmapR,
                      domain = c("hour", "day", "week", "month", "year"),
                      subDomain = c("min", "x_min", "hour", "x_hour", "day",
                                     "x_day", "week", "x_week", "month", "x_month"),
                      start = NULL, range = 12, cellSize = 10, cellPadding = 2,
                      cellRadius = 0, gutter = 2, margin = c(0, 0, 0, 0),
                      colLimit = NULL, rowLimit = NULL, dynamicDimension = TRUE,
-                     verticalOrientation = FALSE) {
+                     verticalOrientation = FALSE, subDomainTextFormat = NULL) {
 
     # build list of attributes
     domainAttrs <- list()
@@ -49,10 +49,34 @@ chDomain <- function(calheatmapR,
     domainAttrs$rowLimit <- rowLimit
     domainAttrs$domainDynamicDimension <- dynamicDimension
     domainAttrs$verticalOrientation <- verticalOrientation
+    domainAttrs$subDomainTextFormat <- subDomainTextFormat
 
     # merge domainAttrs with existing attrs in calheatmapR
     calheatmapR$x$attrs <- mergeLists(calheatmapR$x$attrs, domainAttrs)
 
     # return calheatmapR
     return(calheatmapR)
+}
+
+
+mergeLists <- function (base_list, overlay_list, recursive = TRUE) {
+    if (length(base_list) == 0)
+        overlay_list
+    else if (length(overlay_list) == 0)
+        base_list
+    else {
+        merged_list <- base_list
+        for (name in names(overlay_list)) {
+            base <- base_list[[name]]
+            overlay <- overlay_list[[name]]
+            if (is.list(base) && is.list(overlay) && recursive)
+                merged_list[[name]] <- mergeLists(base, overlay)
+            else {
+                merged_list[[name]] <- NULL
+                merged_list <- append(merged_list,
+                                      overlay_list[which(names(overlay_list) %in% name)])
+            }
+        }
+        merged_list
+    }
 }
