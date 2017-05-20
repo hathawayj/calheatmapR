@@ -20,15 +20,15 @@ calheatmapR(data = pletcher) %>%
 argument | details | cal-heatmap equivalent
 ---------|---------|-----------------------
 calheatmapR | a calendar heatmap returned by `calheatmapR` |
-legend | numeric vector, assigns each range of values to a colour | [legend](http://kamisama.github.io/cal-heatmap/#legend)
-display | whether to display the legend | [displayLegend](http://kamisama.github.io/cal-heatmap/#displayLegend)
-cellSize | size of legend cells (in pixels) | [legendCellSize](http://kamisama.github.io/cal-heatmap/#legendCellSize)
-cellPadding | padding between each legend cell (in pixels) | [legendCellPadding](http://kamisama.github.io/cal-heatmap/#legendCellPadding)
-margin | margin around each legend cell | [legendMargin](http://kamisama.github.io/cal-heatmap/#legendMargin)
-verticalPosition | vertical position of the legend | [legendVerticalPosition](http://kamisama.github.io/cal-heatmap/#legendVerticalPosition)
-horizontalPosition | horizontal position of the legend | [legendHorizontalPosition](http://kamisama.github.io/cal-heatmap/#legendHorizontalPosition)
-orientation | orientation of the legend | [legendOrientation](http://kamisama.github.io/cal-heatmap/#legendOrientation)
-colours | set of colours to compute heatmap colours, either a vector or a list.  List would contain 'min' and 'max' elements with optional elements of 'empty', 'base' and 'overflow' | [legendColors](http://kamisama.github.io/cal-heatmap/#legendColors)
+legend | numeric vector, assigns each range of values to a colour | [legend](http://cal-heatmap.com/#legend)
+display | whether to display the legend | [displayLegend](http://cal-heatmap.com/#displayLegend)
+cellSize | size of legend cells (in pixels) | [legendCellSize](http://cal-heatmap.com/#legendCellSize)
+cellPadding | padding between each legend cell (in pixels) | [legendCellPadding](http://cal-heatmap.com/#legendCellPadding)
+margin | margin around each legend cell | [legendMargin](http://cal-heatmap.com/#legendMargin)
+verticalPosition | vertical position of the legend | [legendVerticalPosition](http://cal-heatmap.com/#legendVerticalPosition)
+horizontalPosition | horizontal position of the legend | [legendHorizontalPosition](http://cal-heatmap.com/#legendHorizontalPosition)
+orientation | orientation of the legend | [legendOrientation](http://cal-heatmap.com/#legendOrientation)
+colours | set of colours to compute heatmap colours, either a vector or a list.  List would contain 'min' and 'max' elements with optional elements of 'empty', 'base' and 'overflow' | [legendColors](http://cal-heatmap.com/#legendColors)
 
 ### Examples
 

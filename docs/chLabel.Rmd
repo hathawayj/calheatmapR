@@ -19,13 +19,13 @@ calheatmapR(data = pletcher) %>%
 argument | details | cal-heatmap equivalent
 ---------|---------|-----------------------
 calheatmapR | a calendar heatmap returned by `calheatmapR` |
-position | position of the label, with respect to the domain | [label.position](http://kamisama.github.io/cal-heatmap/#label)
-align | alignment of the label, with respect to the domain | [label.align](http://kamisama.github.io/cal-heatmap/#label)
-rotate | rotation for vertical label, default is NULL, but accepts "left" or "right" | [label.rotate](http://kamisama.github.io/cal-heatmap/#label)
-width | applied when label is rotated, defines width of label | [label.width](http://kamisama.github.io/cal-heatmap/#label)
-offset | additional control for label positioning | [label.offset](http://kamisama.github.io/cal-heatmap/#label)
-height | height of the domain label (in pixels) | [label.height](http://kamisama.github.io/cal-heatmap/#label)
-itemName | name of entity on calendar being presented | [itemName](http://kamisama.github.io/cal-heatmap/#itemName)
+position | position of the label, with respect to the domain | [label.position](http://cal-heatmap.com/#label)
+align | alignment of the label, with respect to the domain | [label.align](http://cal-heatmap.com/#label)
+rotate | rotation for vertical label, default is NULL, but accepts "left" or "right" | [label.rotate](http://cal-heatmap.com/#label)
+width | applied when label is rotated, defines width of label | [label.width](http://cal-heatmap.com/#label)
+offset | additional control for label positioning | [label.offset](http://cal-heatmap.com/#label)
+height | height of the domain label (in pixels) | [label.height](http://cal-heatmap.com/#label)
+itemName | name of entity on calendar being presented | [itemName](http://cal-heatmap.com/#itemName)
 
 ### Examples
 

@@ -19,19 +19,19 @@ calheatmapR(data = pletcher) %>%
 argument | details | cal-heatmap equivalent
 ---------|---------|-----------------------
 calheatmapR | a calendar heatmap returned by `calheatmapR` |
-domain | type of domain | [domain](https://kamisama.github.io/cal-heatmap/#domain)
-subDomain | type of subDomain | [subDomain](https://kamisama.github.io/cal-heatmap/#subDomain)
-start | Date, in format YYYY-MM-DD | [start](https://kamisama.github.io/cal-heatmap/#start)
-range | number of domains to display | [range](https://kamisama.github.io/cal-heatmap/#range)
-cellSize | size of each domain (in pixels) | [cellSize](https://kamisama.github.io/cal-heatmap/#cellSize)
-cellPadding | space between each subDomain (pixels) | [cellPadding](https://kamisama.github.io/cal-heatmap/#cellPadding)
-cellRadius | border radius of subDomain cells, for round corners (pixels) | [cellRadius](https://kamisama.github.io/cal-heatmap/#cellRadius)
-gutter | space between each domain | [domainGutter](https://kamisama.github.io/cal-heatmap/#domainGutter)
-margin | margins around each domain | [domainMargin](https://kamisama.github.io/cal-heatmap/#domainMargin)
-colLimit | number of columns to split domains into | [colLimit](https://kamisama.github.io/cal-heatmap/#colLimit)
-rowLimit | number of rows to split domains into | [rowLimit](https://kamisama.github.io/cal-heatmap/#rowLimit)
-dynamicDimension | dynamic width and height of domains | [domainDynamicDimension](https://kamisama.github.io/cal-heatmap/#domainDynamicDimension)
-verticalOrientation | display calendar heatmap vertically | [verticalOrientation](https://kamisama.github.io/cal-heatmap/#verticalOrientation)
+domain | type of domain | [domain](http://cal-heatmap.com/#domain)
+subDomain | type of subDomain | [subDomain](http://cal-heatmap.com/#subDomain)
+start | Date, in format YYYY-MM-DD | [start](http://cal-heatmap.com/#start)
+range | number of domains to display | [range](http://cal-heatmap.com/#range)
+cellSize | size of each domain (in pixels) | [cellSize](http://cal-heatmap.com/#cellSize)
+cellPadding | space between each subDomain (pixels) | [cellPadding](http://cal-heatmap.com/#cellPadding)
+cellRadius | border radius of subDomain cells, for round corners (pixels) | [cellRadius](http://cal-heatmap.com/#cellRadius)
+gutter | space between each domain | [domainGutter](http://cal-heatmap.com/#domainGutter)
+margin | margins around each domain | [domainMargin](http://cal-heatmap.com/#domainMargin)
+colLimit | number of columns to split domains into | [colLimit](http://cal-heatmap.com/#colLimit)
+rowLimit | number of rows to split domains into | [rowLimit](http://cal-heatmap.com/#rowLimit)
+dynamicDimension | dynamic width and height of domains | [domainDynamicDimension](http://cal-heatmap.com/#domainDynamicDimension)
+verticalOrientation | display calendar heatmap vertically | [verticalOrientation](http://cal-heatmap.com/#verticalOrientation)
 
 ### Examples
 

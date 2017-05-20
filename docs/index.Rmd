@@ -2,6 +2,8 @@
 title: 'calheatmapR'
 ---
 
+This version is a fork from durtal's Github repository called [calheatmap](http://durtal.github.io/calheatmapR/)
+
 The `calheatmapR` package is an R interface to the [cal-heatmap](https://kamisama.github.io/cal-heatmap/) Javascript charting library, used to create calendar heatmaps to visualise time series data.  The package is a work in progress and can replicate some of the more basic elements of the Javascript library.
 
 These help pages walk through the use of the functions, which are hopefully quite simple to use, but it is worth paying attention to the [Data](data.html) page, which explains the required format of the data in order to be plotted.  The primary function [`calheatmapR`](calheatmapR.html) just loads data and plots using the defaults set in the Javascript library.  There are three other functions that allow customisation of the calendar heatmap, these functions follow a similar pattern to those found in the [dygraphs](https://rstudio.github.io/dygraphs/index.html) htmlwidget.  [`chDomain`](chDomain.html) customises elements to do with the domains (ie. time periods) and the domain style, [`chLabel`](chLabel.html) customises the labels on the plot, and [`chLegend`](chLegend.html) customises the Legend.  

@@ -18,7 +18,7 @@ calheatmapR(data = pletcher)
 
 argument | details | cal-heatmap equivalent
 ---------|---------|-----------------------
-data | list, each element is a number, with a timestamp for a name | [dataFormat](http://kamisama.github.io/cal-heatmap/#data-format)
+data | list, each element is a number, with a timestamp for a name | [dataFormat]http://cal-heatmap.com/#data-format)
 width | element width |
 height | element height |
 

@@ -1,3 +1,4 @@
+output_dir: '.'
 html_document:
     self_contained: false
     theme: united

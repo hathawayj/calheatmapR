@@ -1,9 +1,10 @@
 calheatmapR
 ===========
 
-**This package isn't under active development.**
+I have forked this from [durtal's repository](https://github.com/durtal/calheatmapR)
 
-The `calheatmapR` package is an R interface for the [cal-heatmap](https://github.com/kamisama/cal-heatmap) Javascript charting library, which is used to
+
+The `calheatmapR` package is an R interface for the [cal-heatmap](http://cal-heatmap.com/#home) Javascript charting library, which is used to
 
 > create calendar heatmaps to help visualise time series data, a la github contribution graph
 
@@ -18,7 +19,7 @@ Help pages can be found [here](http://durtal.github.io/calheatmapR/), as mention
 The `calheatmapR` package is only available on github, so to install you will need the `devtools` package installed
 
 ```R
-devtools::install_github(repo = "durtal/calheatmapR")
+devtools::install_github(repo = "hathawayj/calheatmapR")
 ```
 
 ### Data
@@ -60,7 +61,7 @@ The `calheatmapR` function initialises a cal-heatmap plot, with default options,
 ```R
 calheatmapR(data = demoData)
 ```
-![](https://raw.githubusercontent.com/durtal/calheatmapR/gh-pages/default-cal-heatmap.jpg)
+![](https://github.com/hathawayj/calheatmapR/raw/master/docs/default-cal-heatmap.jpg)
 
 Following a similar convention to the [dygraphs](http://rstudio.github.io/dygraphs/) package developed by RStudio, the `calheatmapR` package allows further customisation of a calendar heatmap; this customisation is, more often than not, required.
 
@@ -70,4 +71,4 @@ There are three supplementary functions to customise a plot, these are `chDomain
 calheatmapR(data = demoData) %>%
     chDomain(domain = "month", subDomain = "day", start = "2000-12-01", range = 5)
 ```
-![](https://raw.githubusercontent.com/durtal/calheatmapR/gh-pages/chDomain-cal-heatmap.jpg)
+![](https://github.com/hathawayj/calheatmapR/raw/master/docs/chDomain-cal-heatmap.jpg)
