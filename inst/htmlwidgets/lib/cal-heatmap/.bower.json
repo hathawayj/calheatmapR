@@ -8,7 +8,10 @@
     "heat map"
   ],
   "version": "3.5.2",
-  "main": ["./cal-heatmap.js", "./cal-heatmap.css"],
+  "main": [
+    "./cal-heatmap.js",
+    "./cal-heatmap.css"
+  ],
   "dependencies": {
     "d3": ">= v3.0.6"
   },
@@ -29,5 +32,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kamisama/cal-heatmap.git"
-  }
+  },
+  "_release": "3.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.5.2",
+    "commit": "31439fc48f9c1c07ecd35488645c7162db00e3d5"
+  },
+  "_source": "git://github.com/kamisama/cal-heatmap.git",
+  "_target": "~3.5.2",
+  "_originalSource": "cal-heatmap",
+  "_direct": true
 }

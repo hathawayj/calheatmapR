@@ -1,7 +1,7 @@
-/*! cal-heatmap v3.6.2 (Mon Oct 10 2016 01:36:20)
+/*! cal-heatmap v3.5.2 (Thu Feb 05 2015 17:06:47)
  *  ---------------------------------------------
  *  Cal-Heatmap is a javascript module to create calendar heatmap to visualize time series data
- *  https://github.com/wa0x6e/cal-heatmap
+ *  https://github.com/kamisama/cal-heatmap
  *  Licensed under the MIT license
  *  Copyright 2014 Wan Qi Chen
  */
@@ -70,22 +70,10 @@ var CalHeatMap = function() {
 
 		maxDate: null,
 
-		// ================================================
-		// DATA
-		// ================================================
-
-		// Data source
 		// URL, where to fetch the original datas
 		data: "",
 
-		// Data type
-		// Default: json
 		dataType: this.allowedDataType[0],
-
-		// Payload sent when using POST http method
-		// Leave to null (default) for GET request
-		// Expect a string, formatted like "a=b;c=d"
-		dataPostPayload: null,
 
 		// Whether to consider missing date:value from the datasource
 		// as equal to 0, or just leave them as missing
@@ -450,7 +438,7 @@ var CalHeatMap = function() {
 				case "year":
 					return self._domainType.week.maxItemNumber;
 				case "month":
-					return self.options.domainDynamicDimension ? self.getWeekNumber(new Date(d.getFullYear(), d.getMonth()+1, 0)) - self.getWeekNumber(d) : 5;
+					return self.getWeekNumber(new Date(d.getFullYear(), d.getMonth()+1, 0)) - self.getWeekNumber(d);
 				}
 			},
 			defaultRowNumber: 1,
@@ -477,7 +465,7 @@ var CalHeatMap = function() {
 			extractUnit: function(d) {
 				var dt = new Date(d.getFullYear(), d.getMonth(), d.getDate());
 				// According to ISO-8601, week number computation are based on week starting on Monday
-				var weekDay = dt.getDay() - (self.options.weekStartOnMonday ? 1 : 0);
+				var weekDay = dt.getDay()-1;
 				if (weekDay < 0) {
 					weekDay = 6;
 				}
@@ -539,7 +527,7 @@ var CalHeatMap = function() {
 				column: d.row,
 				position: {
 					x: d.position.y,
-					y: d.position.x
+					y: d.position.x,
 				},
 				format: d.format,
 				extractUnit: d.extractUnit
@@ -1423,7 +1411,6 @@ CalHeatMap.prototype = {
 
 				var htmlClass = parent.getHighlightClassName(d.t).trim().split(" ");
 				var pastDate = parent.dateIsLessThan(d.t, new Date());
-        var sameDate = parent.dateIsEqual(d.t, new Date());
 
 				if (parent.legendScale === null ||
 					(d.v === null && (options.hasOwnProperty("considerMissingDataAsZero") && !options.considerMissingDataAsZero) &&!options.legendColors.hasOwnProperty("base"))
@@ -1431,11 +1418,9 @@ CalHeatMap.prototype = {
 					htmlClass.push("graph-rect");
 				}
 
-        if (sameDate) {
-          htmlClass.push("now");
-        } else if (!pastDate) {
-          htmlClass.push("future");
-        }
+				if (!pastDate && htmlClass.indexOf("now") === -1) {
+					htmlClass.push("future");
+				}
 
 				if (d.v !== null) {
 					htmlClass.push(parent.Legend.getClass(d.v, (parent.legendScale === null)));
@@ -1878,8 +1863,8 @@ CalHeatMap.prototype = {
 
 		if (this.options.highlight.length > 0) {
 			for (var i in this.options.highlight) {
-				if (this.dateIsEqual(this.options.highlight[i], d)) {
-					return this.isNow(this.options.highlight[i]) ? " highlight-now": " highlight";
+				if (this.options.highlight[i] instanceof Date && this.dateIsEqual(this.options.highlight[i], d)) {
+					return " highlight" + (this.isNow(this.options.highlight[i]) ? " now": "");
 				}
 			}
 		}
@@ -1911,14 +1896,6 @@ CalHeatMap.prototype = {
 	/* jshint maxcomplexity: false */
 	dateIsEqual: function(dateA, dateB) {
 		"use strict";
-
-		if(!(dateA instanceof Date)) {
-			dateA = new Date(dateA);
-		}
-
-		if (!(dateB instanceof Date)) {
-			dateB = new Date(dateB);
-		}
 
 		switch(this.options.subDomain) {
 		case "x_min":
@@ -2526,28 +2503,18 @@ CalHeatMap.prototype = {
 				_callback({});
 				return true;
 			} else {
-				var url = this.parseURI(source, startDate, endDate);
-				var requestType = "GET";
-				if (self.options.dataPostPayload !== null ) {
-					requestType = "POST";
-				}
-				var payload = null;
-				if (self.options.dataPostPayload !== null) {
-					payload = this.parseURI(self.options.dataPostPayload, startDate, endDate);
-				}
-
 				switch(this.options.dataType) {
 				case "json":
-					d3.json(url, _callback).send(requestType, payload);
+					d3.json(this.parseURI(source, startDate, endDate), _callback);
 					break;
 				case "csv":
-					d3.csv(url, _callback).send(requestType, payload);
+					d3.csv(this.parseURI(source, startDate, endDate), _callback);
 					break;
 				case "tsv":
-					d3.tsv(url, _callback).send(requestType, payload);
+					d3.tsv(this.parseURI(source, startDate, endDate), _callback);
 					break;
 				case "txt":
-					d3.text(url, "text/plain", _callback).send(requestType, payload);
+					d3.text(this.parseURI(source, startDate, endDate), "text/plain", _callback);
 					break;
 				}
 			}
@@ -2934,10 +2901,8 @@ CalHeatMap.prototype = {
 			".graph-rect": {},
 			"rect.highlight": {},
 			"rect.now": {},
-			"rect.highlight-now": {},
 			"text.highlight": {},
 			"text.now": {},
-			"text.highlight-now": {},
 			".domain-background": {},
 			".graph-label": {},
 			".subdomain-text": {},
